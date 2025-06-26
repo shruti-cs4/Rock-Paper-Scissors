@@ -1,0 +1,41 @@
+body{
+  background-color: rgba(13, 9, 68, 0.95);
+  color: rgb(255, 255, 255);
+  font-family: Arial;
+  margin-left: 20px;
+}
+
+.heading{
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 70px;
+}
+
+.move-button{
+  height: 120px;
+  width: 120px;
+  border-color: rgb(255, 255, 255);
+  border-width: 3px;
+  border-radius: 60px;
+  background-color: transparent;
+  border-style: solid;
+  margin-right: 30px;
+}
+
+.move-img{
+  height: 50px;
+}
+
+.js-result{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.reset-button{
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.move{
+  height: 25px;
+}
