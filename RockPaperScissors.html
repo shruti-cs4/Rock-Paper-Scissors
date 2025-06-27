@@ -9,7 +9,7 @@
       Rock Paper Scissors 
     </p>
     
-    <button class="move-button" onclick="game('Rock');">
+    <button onclick="game('Rock');" class="move-button">
       <img src="Img/rock-emoji.png" class="move-img">
     </button>
     
@@ -31,6 +31,10 @@
       reset();
       updateScoreElement();" class="reset-button"> 
       Reset Score 
+    </button>
+
+    <button class="autoPlay-button" onclick="autoPlay()">
+      Auto Play
     </button>
 
     <script src="RPS.js"></script>

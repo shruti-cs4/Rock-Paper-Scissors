@@ -2,6 +2,17 @@ const score = JSON.parse(localStorage.getItem('score'));
 
 updateScoreElement();
 
+function game(user){
+  let comp = compchoice();
+  let result = evaluate(user, comp);
+  document.querySelector('.js-result')
+    .innerHTML = `You ${result}.`;
+  const userEmoji = getEmoji(user);
+  const compEmoji = getEmoji(comp);
+  document.querySelector('.js-move')
+    .innerHTML = `You ${userEmoji} - ${compEmoji} Computer.`;
+};
+
 
 function compchoice(){
   let computer = '';
@@ -37,17 +48,6 @@ function evaluate(user, comp){
 };
 
 
-function game(user){
-  let comp = compchoice();
-  let result = evaluate(user, comp);
-  document.querySelector('.js-result')
-    .innerHTML = `You ${result}.`;
-  const userEmoji = getEmoji(user);
-  const compEmoji = getEmoji(comp);
-  document.querySelector('.js-move')
-    .innerHTML = `You ${userEmoji} - ${compEmoji} Computer.`;
-};
-
 function reset(){
   score.Win = 0;
   score.Lose = 0;
@@ -73,4 +73,23 @@ function getEmoji(move) {
     default:
       return '';
   }
+}
+
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay(){
+  
+  if (!isAutoPlaying){
+    intervalId = setInterval(function(){
+        game(compchoice());
+      }, 1000);
+    isAutoPlaying = true;
+    document.querySelector('.autoPlay-button').textContent = 'Stop Playing';
+  }else{
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+    document.querySelector('.autoPlay-button').textContent = 'Auto Play';
+  }
+  
 }
